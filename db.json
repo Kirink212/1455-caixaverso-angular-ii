@@ -1,0 +1,104 @@
+{
+  "movies": [
+    {
+      "id": "1",
+      "title": "Superman",
+      "genre": "Superhero, Action",
+      "platform": "Theatrical",
+      "imageLink": "https://upload.wikimedia.org/wikipedia/en/thumb/f/fa/David_Corenswet_as_Superman.jpg/250px-David_Corenswet_as_Superman.jpg",
+      "price": 14.99,
+      "description": "James Gunn’s reboot follows Clark balancing reporter life and heroic duty as a new threat tests his ideals.",
+      "availableInStock": 42
+    },
+    {
+      "id": "2",
+      "title": "Captain America: Brave New World",
+      "genre": "Superhero, Action, Thriller",
+      "platform": "Theatrical",
+      "imageLink": "https://upload.wikimedia.org/wikipedia/en/thumb/3/38/Captain_America_Brave_New_World_poster.jpg/250px-Captain_America_Brave_New_World_poster.jpg",
+      "price": 13.99,
+      "description": "Sam Wilson’s first solo mission as Captain America pits him against political machinations and deadly new enemies.",
+      "availableInStock": 37
+    },
+    {
+      "id": "3",
+      "title": "Minecraft",
+      "genre": "Adventure, Comedy, Family",
+      "platform": "Theatrical",
+      "imageLink": "https://upload.wikimedia.org/wikipedia/en/thumb/d/db/A_Minecraft_Movie_2025_poster.png/250px-A_Minecraft_Movie_2025_poster.png",
+      "price": 12.49,
+      "description": "A live-action quest through a blocky world where unlikely heroes must stop the Ender Dragon from destroying everything.",
+      "availableInStock": 58
+    },
+    {
+      "id": "4",
+      "title": "Wicked: For Good",
+      "genre": "Musical, Fantasy",
+      "platform": "Theatrical",
+      "imageLink": "https://upload.wikimedia.org/wikipedia/en/thumb/b/bf/Wicked_For_Good_poster.jpg/250px-Wicked_For_Good_poster.jpg",
+      "price": 16.99,
+      "description": "The saga concludes as Elphaba and Glinda’s fates collide in Oz, closing out the two-part musical adaptation.",
+      "availableInStock": 31
+    },
+    {
+      "id": "5",
+      "title": "The Fantastic Four: First Steps",
+      "genre": "Superhero, Sci-Fi",
+      "platform": "Theatrical",
+      "imageLink": "https://upload.wikimedia.org/wikipedia/en/thumb/1/13/The_Fantastic_Four_First_Steps_poster.jpg/250px-The_Fantastic_Four_First_Steps_poster.jpg",
+      "price": 15.49,
+      "description": "Marvel’s first family enters the MCU in a retro-futuristic adventure against a cosmic menace.",
+      "availableInStock": 45
+    },
+    {
+      "id": "6",
+      "title": "Tron: Ares",
+      "genre": "Sci-Fi, Action",
+      "platform": "Theatrical (IMAX)",
+      "imageLink": "https://upload.wikimedia.org/wikipedia/en/thumb/0/06/Tron_Ares_poster.jpg/250px-Tron_Ares_poster.jpg",
+      "price": 17.99,
+      "description": "A program crosses into the real world, forcing a high-velocity clash between humanity and sentient code.",
+      "availableInStock": 28
+    },
+    {
+      "id": "7",
+      "title": "How to Train Your Dragon",
+      "genre": "Fantasy, Adventure, Family",
+      "platform": "Theatrical",
+      "imageLink": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+      "price": 12.99,
+      "description": "Live-action retelling of Hiccup and Toothless’ unlikely bond that reshapes Viking-dragon relations.",
+      "availableInStock": 61
+    },
+    {
+      "id": "8",
+      "title": "Paddington in Peru",
+      "genre": "Family, Comedy, Adventure",
+      "platform": "Theatrical",
+      "imageLink": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+      "price": 11.99,
+      "description": "Paddington returns to Peru for a family mystery that becomes his most heartwarming journey yet.",
+      "availableInStock": 73
+    },
+    {
+      "id": "9",
+      "title": "M3GAN 2.0",
+      "genre": "Horror, Thriller, Sci-Fi",
+      "platform": "Theatrical",
+      "imageLink": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+      "price": 14.49,
+      "description": "The rogue AI doll is back—smarter, scarier, and deadlier than ever.",
+      "availableInStock": 39
+    },
+    {
+      "id": "10",
+      "title": "Snow White",
+      "genre": "Fantasy, Musical",
+      "platform": "Theatrical",
+      "imageLink": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+      "price": 13.49,
+      "description": "Disney’s live-action reimagining of the classic tale of a princess, a poisoned apple, and a kingdom reclaimed.",
+      "availableInStock": 33
+    }
+  ]
+}
