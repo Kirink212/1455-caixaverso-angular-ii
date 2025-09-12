@@ -1,5 +1,5 @@
 <div class="container">
     @for (movie of movies; track movie.id) {
-        <app-movie-card />
+        <app-movie-card [movie]="movie"/>
     }
 </div>
