@@ -4,11 +4,11 @@
             <div class="list-item">
                 <div>{{ item.movie.title }}</div>
                 <div>
-                    <button mat-icon-button>
+                    <button mat-icon-button (click)="removeItem(item)">
                         <mat-icon>remove</mat-icon>
                     </button>
                     <span>{{ item.quantity }}</span>
-                    <button mat-icon-button>
+                    <button mat-icon-button (click)="addItem(item)" [disabled]="item.quantity >= item.movie.availableInStock">
                         <mat-icon>add</mat-icon>
                     </button>
                 </div>
@@ -16,4 +16,6 @@
         </mat-list-item>
         <mat-divider></mat-divider>
     }
+
+    <b>Total da Compra: {{ getTotalPrice() | currency:'R$' }}</b>
 </mat-list>

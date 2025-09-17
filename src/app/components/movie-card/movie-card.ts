@@ -4,6 +4,7 @@ import { Movie } from '../../models/movie';
 import { CartService } from '../../services/cart.service';
 import { MatIcon } from '@angular/material/icon';
 import { MatIconButton } from '@angular/material/button';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-movie-card',
@@ -14,7 +15,7 @@ import { MatIconButton } from '@angular/material/button';
 export class MovieCard {
   @Input() movie: Movie;
 
-  constructor(private cartService: CartService) {
+  constructor(private cartService: CartService, private snackBar: MatSnackBar) {
     this.movie = {
       "id": "0",
       "title": "Título do Filme",
@@ -27,7 +28,14 @@ export class MovieCard {
     };
   }
 
-  addItemToCart(movie: Movie) {    
-    this.cartService.addItem(movie);
+  addItemToCart(movie: Movie) {
+    const done = this.cartService.addItem(movie);
+    if (!done) {
+      this.snackBar.open('Não é possível adicionar este filme ao carrinho.', 'Fechar', {
+        horizontalPosition: "end",
+        verticalPosition: "top",
+        duration: 3000
+      });
+    }
   }
 }

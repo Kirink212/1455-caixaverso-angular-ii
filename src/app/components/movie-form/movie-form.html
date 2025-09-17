@@ -1,0 +1,76 @@
+<form [formGroup]="movieForm" (ngSubmit)="submitForm()">
+  <h3>Add new movie to Catalog</h3>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Title</mat-label>
+    <input matInput formControlName="title" />
+    @if (movieForm.get('title')?.hasError('required') && (movieForm.get('title')?.touched || movieForm.get('title')?.dirty)) {
+      <mat-error>Title is required</mat-error>
+    }
+    @if (movieForm.get('title')?.hasError('maxlength')) {
+      <mat-error>Maximum 50 characters allowed</mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Genre</mat-label>
+    <input matInput formControlName="genre" />
+    @if (movieForm.get('genre')?.hasError('required') && (movieForm.get('genre')?.touched || movieForm.get('genre')?.dirty)) {
+      <mat-error>Genre is required</mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Platform</mat-label>
+    <input matInput formControlName="platform" />
+    @if (movieForm.get('platform')?.hasError('required') && (movieForm.get('platform')?.touched || movieForm.get('platform')?.dirty)) {
+      <mat-error>Platform is required</mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Image Link</mat-label>
+    <input matInput formControlName="imageLink" />
+    @if (movieForm.get('imageLink')?.hasError('required') && (movieForm.get('imageLink')?.touched || movieForm.get('imageLink')?.dirty)) {
+      <mat-error>Image link is required</mat-error>
+    }
+    @if (movieForm.get('imageLink')?.hasError('pattern')) {
+      <mat-error>Enter a valid URL</mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Price</mat-label>
+    <input matInput type="number" formControlName="price" />
+    @if (movieForm.get('price')?.hasError('required')) {
+      <mat-error>Price is required</mat-error>
+    }
+    @if (movieForm.get('price')?.hasError('min')) {
+      <mat-error>Price must be a positive number</mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Description</mat-label>
+    <textarea matInput formControlName="description"></textarea>
+    @if (movieForm.get('description')?.hasError('required') && (movieForm.get('description')?.touched || movieForm.get('description')?.dirty)) {
+      <mat-error>Description is required</mat-error>
+    }
+    @if (movieForm.get('description')?.hasError('maxlength')) {
+      <mat-error>Maximum 300 characters allowed</mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Available in Stock</mat-label>
+    <input matInput type="number" formControlName="availableInStock" />
+    @if (movieForm.get('availableInStock')?.hasError('required')) {
+      <mat-error>Stock amount is required</mat-error>
+    }
+    @if (movieForm.get('availableInStock')?.hasError('min')) {
+      <mat-error>Stock must be a positive number</mat-error>
+    }
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit">Submit</button>
+</form>

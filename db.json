@@ -8,7 +8,7 @@
       "imageLink": "https://upload.wikimedia.org/wikipedia/en/thumb/f/fa/David_Corenswet_as_Superman.jpg/250px-David_Corenswet_as_Superman.jpg",
       "price": 14.99,
       "description": "James Gunn’s reboot follows Clark balancing reporter life and heroic duty as a new threat tests his ideals.",
-      "availableInStock": 42
+      "availableInStock": 5
     },
     {
       "id": "2",
@@ -98,7 +98,7 @@
       "imageLink": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
       "price": 13.49,
       "description": "Disney’s live-action reimagining of the classic tale of a princess, a poisoned apple, and a kingdom reclaimed.",
-      "availableInStock": 33
+      "availableInStock": 0
     }
   ]
 }
