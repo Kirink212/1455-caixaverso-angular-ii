@@ -15,5 +15,15 @@
         add_shopping_cart
       </mat-icon>
     </button>
+    <button mat-icon-button [routerLink]="['/movies/update/', movie.id]">
+      <mat-icon>
+        edit_square
+      </mat-icon>
+    </button>
+    <button mat-icon-button>
+      <mat-icon>
+        delete
+      </mat-icon>
+    </button>
   </mat-card-actions>
 </mat-card>

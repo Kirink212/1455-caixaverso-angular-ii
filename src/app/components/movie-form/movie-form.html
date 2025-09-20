@@ -28,7 +28,7 @@
     }
   </mat-form-field>
 
-  <mat-form-field appearance="fill">
+  <!-- <mat-form-field appearance="fill">
     <mat-label>Image Link</mat-label>
     <input matInput formControlName="imageLink" />
     @if (movieForm.get('imageLink')?.hasError('required') && (movieForm.get('imageLink')?.touched || movieForm.get('imageLink')?.dirty)) {
@@ -37,7 +37,22 @@
     @if (movieForm.get('imageLink')?.hasError('pattern')) {
       <mat-error>Enter a valid URL</mat-error>
     }
-  </mat-form-field>
+  </mat-form-field> -->
+
+  <div class="file-field">
+    <label class="block mb-1">Poster image</label>
+
+    <input type="file" #fileInput accept="image/*" style="display: none;" (change)="onFileSelected($event)" />
+    <button mat-raised-button color="primary" (click)="fileInput.click()" type="button">Choose File</button>
+    @if (fileError) {
+      <mat-error>{{ fileError }}</mat-error>
+    }
+    @if (imagePreview) {
+      <div class="preview">
+        <img [src]="imagePreview" alt="Preview" style="max-width: 240px; margin-top: 8px;" />
+      </div>
+    }
+  </div>
 
   <mat-form-field appearance="fill">
     <mat-label>Price</mat-label>

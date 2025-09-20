@@ -5,10 +5,11 @@ import { CartService } from '../../services/cart.service';
 import { MatIcon } from '@angular/material/icon';
 import { MatIconButton } from '@angular/material/button';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-movie-card',
-  imports: [ MatIcon, MatIconButton, MatCardModule ],
+  imports: [ MatIcon, MatIconButton, MatCardModule, RouterLink ],
   templateUrl: './movie-card.html',
   styleUrl: './movie-card.scss'
 })
