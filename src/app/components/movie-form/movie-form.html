@@ -1,5 +1,11 @@
 <form [formGroup]="movieForm" (ngSubmit)="submitForm()">
-  <h3>Add new movie to Catalog</h3>
+  <h3>
+    @if (isEditMode()) {
+      Atualizar filme
+    } @else {
+      Adicionar novo filme ao catálogo
+    }
+  </h3>
 
   <mat-form-field appearance="fill">
     <mat-label>Title</mat-label>
@@ -43,7 +49,16 @@
     <label class="block mb-1">Poster image</label>
 
     <input type="file" #fileInput accept="image/*" style="display: none;" (change)="onFileSelected($event)" />
-    <button mat-raised-button color="primary" (click)="fileInput.click()" type="button">Choose File</button>
+    <button mat-raised-button color="primary" (click)="fileInput.click()" type="button">
+      @if (isEditMode()) {
+        Alterar poster
+      } @else {
+        Escolher arquivo
+      }
+    </button>
+    @if (isEditMode()) {
+      <small class="hint">Caso não selecione uma nova imagem, o poster atual será mantido.</small>
+    }
     @if (fileError) {
       <mat-error>{{ fileError }}</mat-error>
     }
@@ -87,5 +102,11 @@
     }
   </mat-form-field>
 
-  <button mat-raised-button color="primary" type="submit">Submit</button>
+  <button mat-raised-button color="primary" type="submit">
+    @if (isEditMode()) {
+      Salvar alterações
+    } @else {
+      Cadastrar filme
+    }
+  </button>
 </form>
