@@ -22,8 +22,16 @@ export class MoviesService {
     return this.http.get<Movie>(`${this.API_URL}movies/${id}`);
   }
 
-  create(movie: Movie) {
+  create(movie: Omit<Movie, 'id'>) {
     return this.http.post<Movie>(`${this.API_URL}movies`, movie)
+  }
+
+  update(id: string, movie: Movie) {
+    return this.http.put<Movie>(`${this.API_URL}movies/${id}`, movie);
+  }
+
+  delete(id: string) {
+    return this.http.delete<void>(`${this.API_URL}movies/${id}`);
   }
 
   uploadImage(file: File): Observable<{ imageUrl: string; path?: string }> {

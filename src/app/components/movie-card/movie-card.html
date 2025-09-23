@@ -15,15 +15,17 @@
         add_shopping_cart
       </mat-icon>
     </button>
-    <button mat-icon-button [routerLink]="['/movies/update/', movie.id]">
-      <mat-icon>
-        edit_square
-      </mat-icon>
-    </button>
-    <button mat-icon-button>
-      <mat-icon>
-        delete
-      </mat-icon>
-    </button>
+    @if (isLoggedIn) {
+      <button mat-icon-button [routerLink]="['/movies/update/', movie.id]">
+        <mat-icon>
+          edit_square
+        </mat-icon>
+      </button>
+      <button mat-icon-button (click)="confirmDelete()">
+        <mat-icon>
+          delete
+        </mat-icon>
+      </button>
+    }
   </mat-card-actions>
 </mat-card>

@@ -1,12 +1,22 @@
-import { Component, effect, EventEmitter, inject, Input, Output, signal, Signal } from '@angular/core';
+import { Component, effect, EventEmitter, Input, Output, signal, Signal, computed } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { MoviesService } from '../../services/movies.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { switchMap } from 'rxjs';
 import { Movie } from '../../models/movie';
+
+export type MovieFormValue = Omit<Movie, 'id' | 'imageLink'>;
+
+export interface MovieFormCreateEvent {
+  formValue: MovieFormValue;
+  file: File;
+}
+
+export interface MovieFormUpdateEvent {
+  formValue: MovieFormValue;
+  movie: Movie;
+  newFile: File | null;
+}
 
 @Component({
   selector: 'app-movie-form',
@@ -15,20 +25,16 @@ import { Movie } from '../../models/movie';
   styleUrl: './movie-form.scss'
 })
 export class MovieForm {
-  private moviesService: MoviesService;
-  private snackBar: MatSnackBar;
-
   @Input() movie: Signal<Movie | null> = signal(null);
-  @Output() submitEvent: EventEmitter<void> = new EventEmitter();
+  @Output() createMovie: EventEmitter<MovieFormCreateEvent> = new EventEmitter();
+  @Output() updateMovie: EventEmitter<MovieFormUpdateEvent> = new EventEmitter();
   movieForm: FormGroup;
   selectedFile: File | null = null;
   imagePreview: string | null = null;
   fileError: string | null = null;
+  isEditMode = computed(() => this.movie() !== null);
 
   constructor() {
-    this.moviesService = inject(MoviesService);
-    this.snackBar = inject(MatSnackBar);
-
     this.movieForm = new FormGroup({
       title: new FormControl('', [Validators.required, Validators.maxLength(50)]),
       genre: new FormControl('', [Validators.required]),
@@ -55,10 +61,22 @@ export class MovieForm {
     effect(() => {
       const m = this.movie();
       if (m) {
-        this.movieForm.patchValue({ ...this.movie() });
-        this.imagePreview = this.movie()?.imageLink?? null;
+        this.movieForm.patchValue({
+          title: m.title,
+          genre: m.genre,
+          platform: m.platform,
+          price: m.price,
+          description: m.description,
+          availableInStock: m.availableInStock
+        });
+        this.imagePreview = this.movie()?.imageLink ?? null;
+        this.selectedFile = null;
+        this.fileError = null;
       } else {
         this.movieForm.reset();
+        this.selectedFile = null;
+        this.imagePreview = null;
+        this.fileError = null;
       }
     });
   }
@@ -104,39 +122,42 @@ export class MovieForm {
       this.movieForm.markAllAsTouched();
       return;
     }
-    if (!this.selectedFile) {
-      this.fileError = 'Por favor, selecione uma imagem de poster para o filme';
-      return;
-    }
+    const currentMovie = this.movie();
 
-    // this.submitEvent.emit(this.selectedFile, this.movieForm.value);
+    const basePayload: MovieFormValue = {
+      title: this.movieForm.value.title,
+      genre: this.movieForm.value.genre,
+      platform: this.movieForm.value.platform,
+      price: Number(this.movieForm.value.price),
+      description: this.movieForm.value.description,
+      availableInStock: Number(this.movieForm.value.availableInStock)
+    } as MovieFormValue;
 
-    this.moviesService
-      .uploadImage(this.selectedFile)
-      .pipe(
-        switchMap(({ imageUrl }) => {
-          const movieObj = {
-            ...this.movieForm.value,
-            imageLink: imageUrl
-          };
-
-          return this.moviesService.create(movieObj);
-        })
-      ).subscribe({
-        next: (movie) => {
-          console.log(movie);
-
-          this.selectedFile = null;
-          this.imagePreview = null;
-          this.fileError = null;
-
-          this.snackBar.open('Filme adicionado com sucesso!', 'Fechar', {
-            horizontalPosition: "end",
-            verticalPosition: "top",
-            duration: 3000
-          });
-        },
-        error: (err) => console.error(err)
+    if (currentMovie) {
+      this.fileError = null;
+      this.updateMovie.emit({
+        formValue: basePayload,
+        movie: currentMovie,
+        newFile: this.selectedFile
       });
+    } else {
+      if (!this.selectedFile) {
+        this.fileError = 'Por favor, selecione uma imagem de poster para o filme';
+        return;
+      }
+
+      this.fileError = null;
+      this.createMovie.emit({
+        formValue: basePayload,
+        file: this.selectedFile
+      });
+    }
+  }
+
+  resetAfterCreate() {
+    this.movieForm.reset();
+    this.selectedFile = null;
+    this.imagePreview = null;
+    this.fileError = null;
   }
 }

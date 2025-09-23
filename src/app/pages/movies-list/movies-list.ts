@@ -18,7 +18,10 @@ export class MoviesList implements OnInit {
   ngOnInit(): void {
     this.moviesService.getAll().subscribe((movies) => {
       this.movies = movies;
-      console.log(this.movies);
     });
+  }
+
+  onMovieDeleted(id: string) {
+    this.movies = this.movies.filter((movie) => movie.id !== id);
   }
 }
