@@ -49,10 +49,23 @@ export class Login {
     this.authService.loginUser(
       this.loginForm.get("email")?.value, 
       this.loginForm.get("password")?.value
-    ).subscribe((isLoggedIn: boolean) => {   
-      if (!isLoggedIn) {
+    ).subscribe({
+      next: (isLoggedIn: boolean) => {   
+        if (!isLoggedIn) {
+          this.snackBar.open(
+            "Não foi possível logar. Tente novamente com credenciais válidas!",
+            "Fechar",
+            {
+              horizontalPosition: "end",
+              verticalPosition: "top",
+              duration: 3000,
+            }
+          );
+          return;
+        }
+
         this.snackBar.open(
-          "Não foi possível logar. Tente novamente com credenciais válidas!",
+          "Login realizado com sucesso!",
           "Fechar",
           {
             horizontalPosition: "end",
@@ -60,20 +73,22 @@ export class Login {
             duration: 3000,
           }
         );
-        return;
+
+        this.authService.scheduleLogout();
+
+        this.router.navigate(['']);
+      },
+      error: (err) => {
+        this.snackBar.open(
+          "Login inválido. Por favor, digite credenciais válidas!",
+          "Fechar",
+          {
+            horizontalPosition: "end",
+            verticalPosition: "top",
+            duration: 3000,
+          }
+        );
       }
-
-      this.snackBar.open(
-        "Login realizado com sucesso!",
-        "Fechar",
-        {
-          horizontalPosition: "end",
-          verticalPosition: "top",
-          duration: 3000,
-        }
-      );
-
-      this.router.navigate(['']);
     });
   }
 }

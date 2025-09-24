@@ -13,4 +13,14 @@
   <button (click)="openCartDrawer()" mat-icon-button>
     <mat-icon>shopping_cart</mat-icon>
   </button>
+
+  @if (isLoggedIn) {
+    <button matButton (click)="logoutCurrentUser()">
+      Logout
+    </button>
+  } @else {
+    <button matButton aria-label="Login user" routerLink="login">
+      Login
+    </button>
+  }
 </mat-toolbar>
