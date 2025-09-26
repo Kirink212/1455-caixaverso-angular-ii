@@ -1,21 +1,30 @@
 <mat-list>
-    @for(item of cartArray; track item.movie.id) {
-        <mat-list-item>
-            <div class="list-item">
-                <div>{{ item.movie.title }}</div>
-                <div>
-                    <button mat-icon-button (click)="removeItem(item)">
-                        <mat-icon>remove</mat-icon>
-                    </button>
-                    <span>{{ item.quantity }}</span>
-                    <button mat-icon-button (click)="addItem(item)" [disabled]="item.quantity >= item.movie.availableInStock">
-                        <mat-icon>add</mat-icon>
-                    </button>
-                </div>
-            </div>
-        </mat-list-item>
-        <mat-divider></mat-divider>
-    }
-
-    <b>Total da Compra: {{ getTotalPrice() | currency:'R$' }}</b>
+  @for(item of cartArray; track item.movie.id) {
+    <mat-list-item>
+      <div class="list-item">
+        <div>{{ item.movie.title }}</div>
+        <div>
+          <button mat-icon-button (click)="removeItem(item)">
+            <mat-icon>remove</mat-icon>
+          </button>
+          <span>{{ item.quantity }}</span>
+          <button
+            mat-icon-button
+            (click)="addItem(item)"
+            [disabled]="item.quantity >= item.movie.availableInStock"
+          >
+            <mat-icon>add</mat-icon>
+          </button>
+        </div>
+      </div>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+  }
 </mat-list>
+
+<div class="cart-footer">
+  <b>Total da Compra: {{ getTotalPrice() | currency: 'R$' }}</b>
+  <button mat-flat-button color="primary" (click)="openPaymentModal()">
+    Finalizar pagamento
+  </button>
+</div>

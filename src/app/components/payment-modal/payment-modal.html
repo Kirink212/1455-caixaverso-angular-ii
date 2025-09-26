@@ -1,0 +1,35 @@
+<h2 mat-dialog-title>Finalizar pagamento</h2>
+<mat-dialog-content>
+  <p>Revise os itens e informe os dados do cartão para concluir a compra.</p>
+  <div class="summary">
+    <span>Total a pagar</span>
+    <strong>{{ data.total | currency: 'R$' }}</strong>
+  </div>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Nome impresso no cartão</mat-label>
+    <input matInput [(ngModel)]="cardHolderName" placeholder="Ex.: Maria Souza" />
+  </mat-form-field>
+
+  <label class="field-label">Dados do cartão</label>
+  <div #cardElement class="card-element"></div>
+
+  <div *ngIf="statusMessage" class="status">{{ statusMessage }}</div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button type="button" (click)="close()" [disabled]="loading">Cancelar</button>
+  <button
+    mat-flat-button
+    color="primary"
+    type="button"
+    (click)="submitPayment()"
+    [disabled]="loading || !stripeReady"
+  >
+    <mat-progress-spinner
+      *ngIf="loading"
+      diameter="18"
+      mode="indeterminate"
+    ></mat-progress-spinner>
+    <span *ngIf="!loading">Pagar agora</span>
+  </button>
+</mat-dialog-actions>
