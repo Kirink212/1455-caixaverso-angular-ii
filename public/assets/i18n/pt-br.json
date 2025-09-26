@@ -1,0 +1,144 @@
+{
+  "header": {
+    "title": "Minha lista de filmes",
+    "moviesList": "Lista de filmes",
+    "addNewMovie": "Adicionar novo filme",
+    "logout": "Sair",
+    "login": "Entrar",
+    "languages": {
+      "portuguese": "Português",
+      "english": "Inglês"
+    },
+    "actions": {
+      "openMenu": "Abrir menu lateral",
+      "goToList": "Ir para lista de filmes",
+      "goToAdd": "Ir para cadastrar novo filme",
+      "openCart": "Abrir carrinho de compras",
+      "logout": "Realizar logout",
+      "login": "Ir para tela de login"
+    }
+  },
+  "common": {
+    "close": "Fechar",
+    "cancel": "Cancelar",
+    "delete": "Excluir"
+  },
+  "cart": {
+    "totalPurchase": "Total da compra",
+    "errors": {
+      "itemUnavailable": "Não é possível adicionar este filme ao carrinho."
+    }
+  },
+  "login": {
+    "form": {
+      "email": {
+        "label": "E-mail"
+      },
+      "password": {
+        "label": "Senha"
+      },
+      "submit": "Entrar"
+    },
+    "errors": {
+      "email": {
+        "required": "Campo e-mail deve ser preenchido",
+        "invalid": "Campo e-mail inválido"
+      },
+      "password": {
+        "required": "Senha é obrigatória"
+      }
+    },
+    "messages": {
+      "authenticationFailed": "Não foi possível logar. Tente novamente com credenciais válidas!",
+      "success": "Login realizado com sucesso!",
+      "invalidCredentials": "Login inválido. Por favor, digite credenciais válidas!"
+    }
+  },
+  "movieForm": {
+    "titles": {
+      "update": "Atualizar filme",
+      "create": "Adicionar novo filme ao catálogo"
+    },
+    "fields": {
+      "title": {
+        "label": "Título",
+        "errors": {
+          "required": "Título é obrigatório",
+          "maxlength": "Máximo de 50 caracteres permitidos"
+        }
+      },
+      "genre": {
+        "label": "Gênero",
+        "errors": {
+          "required": "Gênero é obrigatório"
+        }
+      },
+      "platform": {
+        "label": "Plataforma",
+        "errors": {
+          "required": "Plataforma é obrigatória"
+        }
+      },
+      "poster": {
+        "label": "Imagem do poster",
+        "buttons": {
+          "update": "Alterar poster",
+          "select": "Escolher arquivo"
+        },
+        "hint": "Caso não selecione uma nova imagem, o poster atual será mantido."
+      },
+      "price": {
+        "label": "Preço",
+        "errors": {
+          "required": "Preço é obrigatório",
+          "min": "O preço deve ser um número positivo"
+        }
+      },
+      "description": {
+        "label": "Descrição",
+        "errors": {
+          "required": "Descrição é obrigatória",
+          "maxlength": "Máximo de 300 caracteres permitidos"
+        }
+      },
+      "availableInStock": {
+        "label": "Quantidade em estoque disponível",
+        "errors": {
+          "required": "Quantidade em estoque é obrigatória",
+          "min": "O estoque deve ser um número positivo"
+        }
+      }
+    },
+    "actions": {
+      "save": "Salvar alterações",
+      "create": "Cadastrar filme"
+    },
+    "errors": {
+      "file": {
+        "invalidType": "Por favor, selecione um arquivo do tipo imagem",
+        "maxSize": "A imagem pode ter no máximo 5MB",
+        "required": "Por favor, selecione uma imagem de poster para o filme"
+      }
+    }
+  },
+  "movies": {
+    "list": {
+      "empty": "Nenhum filme cadastrado"
+    },
+    "messages": {
+      "deleteSuccess": "Filme excluído com sucesso!",
+      "deleteError": "Não foi possível excluir o filme.",
+      "createSuccess": "Filme adicionado com sucesso!",
+      "createError": "Não foi possível adicionar o filme.",
+      "updateSuccess": "Filme atualizado com sucesso!",
+      "updateError": "Não foi possível atualizar o filme."
+    },
+    "deleteDialog": {
+      "title": "Excluir filme",
+      "message": "Tem certeza de que deseja excluir \"{{ title }}\"?"
+    }
+  },
+  "notFound": {
+    "title": "Erro 404 - Página não encontrada"
+  }
+}

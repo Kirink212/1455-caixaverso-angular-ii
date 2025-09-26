@@ -4,9 +4,17 @@
   <mat-drawer #drawer mode="side">
     <app-cart />
   </mat-drawer>
-
+  
   <div>
-    <router-outlet />
+    @defer(on interaction) {
+      <router-outlet />
+    } @placeholder(minimum 1s) {
+      <b>Lista de filmes vazia</b>
+    } @loading(minimum 1.5s) {
+      <mat-spinner></mat-spinner>
+    } @error {
+      <b>Erro no carregamento</b>
+    }
   </div>
   
 </mat-drawer-container>

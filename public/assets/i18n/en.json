@@ -1,0 +1,144 @@
+{
+  "header": {
+    "title": "My movies list",
+    "moviesList": "Movies list",
+    "addNewMovie": "Add new movie",
+    "logout": "Logout",
+    "login": "Login",
+    "languages": {
+      "portuguese": "Portuguese",
+      "english": "English"
+    },
+    "actions": {
+      "openMenu": "Open side menu",
+      "goToList": "Go to movies list",
+      "goToAdd": "Go to add new movie",
+      "openCart": "Open shopping cart",
+      "logout": "Log out current user",
+      "login": "Go to login page"
+    }
+  },
+  "common": {
+    "close": "Close",
+    "cancel": "Cancel",
+    "delete": "Delete"
+  },
+  "cart": {
+    "totalPurchase": "Order total",
+    "errors": {
+      "itemUnavailable": "Cannot add this movie to the cart."
+    }
+  },
+  "login": {
+    "form": {
+      "email": {
+        "label": "Email"
+      },
+      "password": {
+        "label": "Password"
+      },
+      "submit": "Sign in"
+    },
+    "errors": {
+      "email": {
+        "required": "Email is required",
+        "invalid": "Please enter a valid email address"
+      },
+      "password": {
+        "required": "Password is required"
+      }
+    },
+    "messages": {
+      "authenticationFailed": "Unable to sign in. Please try again with valid credentials!",
+      "success": "Successfully signed in!",
+      "invalidCredentials": "Invalid login. Please enter valid credentials!"
+    }
+  },
+  "movieForm": {
+    "titles": {
+      "update": "Update movie",
+      "create": "Add a new movie to the catalog"
+    },
+    "fields": {
+      "title": {
+        "label": "Title",
+        "errors": {
+          "required": "Title is required",
+          "maxlength": "Maximum of 50 characters allowed"
+        }
+      },
+      "genre": {
+        "label": "Genre",
+        "errors": {
+          "required": "Genre is required"
+        }
+      },
+      "platform": {
+        "label": "Platform",
+        "errors": {
+          "required": "Platform is required"
+        }
+      },
+      "poster": {
+        "label": "Poster image",
+        "buttons": {
+          "update": "Change poster",
+          "select": "Choose file"
+        },
+        "hint": "If no new image is selected, the current poster will be kept."
+      },
+      "price": {
+        "label": "Price",
+        "errors": {
+          "required": "Price is required",
+          "min": "Price must be a positive number"
+        }
+      },
+      "description": {
+        "label": "Description",
+        "errors": {
+          "required": "Description is required",
+          "maxlength": "Maximum of 300 characters allowed"
+        }
+      },
+      "availableInStock": {
+        "label": "Available in stock",
+        "errors": {
+          "required": "Stock amount is required",
+          "min": "Stock must be a positive number"
+        }
+      }
+    },
+    "actions": {
+      "save": "Save changes",
+      "create": "Create movie"
+    },
+    "errors": {
+      "file": {
+        "invalidType": "Please select an image file",
+        "maxSize": "The image can be at most 5MB",
+        "required": "Please select a poster image for the movie"
+      }
+    }
+  },
+  "movies": {
+    "list": {
+      "empty": "No movies registered"
+    },
+    "messages": {
+      "deleteSuccess": "Movie deleted successfully!",
+      "deleteError": "Could not delete the movie.",
+      "createSuccess": "Movie added successfully!",
+      "createError": "Could not add the movie.",
+      "updateSuccess": "Movie updated successfully!",
+      "updateError": "Could not update the movie."
+    },
+    "deleteDialog": {
+      "title": "Delete movie",
+      "message": "Are you sure you want to delete \"{{ title }}\"?"
+    }
+  },
+  "notFound": {
+    "title": "Error 404 - Page not found"
+  }
+}
