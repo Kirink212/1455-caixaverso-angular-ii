@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ElementRef, Inject, OnDestroy, ViewChild } from '@angular/core';
-import { CommonModule, CurrencyPipe, NgIf } from '@angular/common';
+import { CommonModule, CurrencyPipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MAT_DIALOG_DATA, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
@@ -24,7 +24,6 @@ interface PaymentModalData {
   standalone: true,
   imports: [
     CommonModule,
-    NgIf,
     FormsModule,
     CurrencyPipe,
     MatDialogModule,
@@ -37,8 +36,7 @@ interface PaymentModalData {
   styleUrl: './payment-modal.scss'
 })
 export class PaymentModal implements AfterViewInit, OnDestroy {
-  @ViewChild('cardElement', { static: true })
-  cardElement?: ElementRef<HTMLDivElement>;
+  @ViewChild('cardElement', { static: true }) cardElement?: ElementRef<HTMLDivElement>;
 
   cardHolderName = '';
   loading = false;
